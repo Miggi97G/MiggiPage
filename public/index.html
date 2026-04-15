@@ -1,136 +1,164 @@
 <!DOCTYPE html>
 <html lang="de">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Miggi-Dev | Website Modernisierung</title>
-    <meta name="description" content="Wir modernisieren Ihre Website. Premium Design, maximale Performance und höchste Sichtbarkeit.">
-    
-    <link rel="stylesheet" href="style.css">
 
-    <!-- Firebase SDK (Optional for future use) -->
-    <script defer src="/__/firebase/12.12.0/firebase-app-compat.js"></script>
-    <script defer src="/__/firebase/12.12.0/firebase-analytics-compat.js"></script>
-    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
-  </head>
-  <body>
-    <!-- Background Animation -->
-    <div class="bg-blobs">
-        <div class="blob blob-1"></div>
-        <div class="blob blob-2"></div>
+<head>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-X7V9DEQ6PH"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-X7V9DEQ6PH');
+  </script>
+
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Miggi-Dev | Website Modernisierung</title>
+  <meta name="description"
+    content="Wir modernisieren Ihre Website. Premium Design, maximale Performance und höchste Sichtbarkeit.">
+
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Firebase SDK (Optional for future use) -->
+  <script defer src="/__/firebase/12.12.0/firebase-app-compat.js"></script>
+  <script defer src="/__/firebase/12.12.0/firebase-analytics-compat.js"></script>
+  <script defer src="/__/firebase/init.js?useEmulator=true"></script>
+</head>
+
+<body>
+  <!-- Background Animation -->
+  <div class="bg-blobs">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+  </div>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="logo">Miggi-Dev.</div>
+    <a href="#contact" class="btn btn-primary">Jetzt starten</a>
+  </nav>
+
+  <div class="nav-links">
+    <a href="#services">Leistungen</a>
+    <a href="#about">Über uns</a>
+    <a href="#contact">Kontakt</a>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-pill">🚀 Next-Gen Web Development</div>
+    <h1>Zeit für einen <span class="highlight">digitalen Neustart.</span></h1>
+    <p>Veraltete Websites kosten Sie Kunden. Wir modernisieren Ihre Online-Präsenz mit erstklassigem Design, rasend
+      schnellen Ladezeiten und kompromissloser Benutzerfreundlichkeit.</p>
+    <div class="hero-cta">
+      <a href="#contact" class="btn btn-primary">Kostenlose Analyse anfordern</a>
     </div>
+  </section>
 
-    <!-- Navigation -->
-    <nav>
-        <div class="logo">Miggi-Dev.</div>
-        <a href="#contact" class="btn btn-primary">Jetzt starten</a>
-    </nav>
-
-    <div class="nav-links">
-        <a href="#services">Leistungen</a>
-        <a href="#about">Über uns</a>
-        <a href="#contact">Kontakt</a>
+  <!-- Services Section -->
+  <section id="services" class="services">
+    <h2 class="section-title">Unsere <span class="highlight">Expertise</span></h2>
+    <div class="grid">
+      <div class="card">
+        <div class="card-icon">✨</div>
+        <h3>Premium Design</h3>
+        <p>Wir kreieren moderne UI/UX Erlebnisse mit atemberaubender Ästhetik. Kein Baukasten-Look, sondern
+          maßgeschneiderte Perfektion.</p>
+      </div>
+      <div class="card" style="transition-delay: 0.1s;">
+        <div class="card-icon">⚡</div>
+        <h3>Maximaler Speed</h3>
+        <p>Nutzer warten nicht. Wir optimieren Ihren Code und Ihre Assets für blitzschnelle Ladezeiten auf allen
+          Endgeräten.</p>
+      </div>
+      <div class="card" style="transition-delay: 0.2s;">
+        <div class="card-icon">📈</div>
+        <h3>SEO & Sichtbarkeit</h3>
+        <p>Eine schöne Website nützt nichts, wenn sie nicht gefunden wird. Wir programmieren nach den neuesten
+          SEO-Standards.</p>
+      </div>
+      <div class="card" style="transition-delay: 0.3s;">
+        <div class="card-icon">📱</div>
+        <h3>Responsive Perfection</h3>
+        <p>Ihre neue Website sieht auf Smartphones, Tablets und großen Bildschirmen gleichermaßen makellos aus.</p>
+      </div>
+      <div class="card" style="transition-delay: 0.4s;">
+        <div class="card-icon">🔒</div>
+        <h3>Sicherheit & Updates</h3>
+        <p>Wir verwenden moderne Technologien, um Ihre Seite vor Angriffen zu schützen und zukunftssicher aufzustellen.
+        </p>
+      </div>
+      <div class="card" style="transition-delay: 0.5s;">
+        <div class="card-icon">💬</div>
+        <h3>Persönlicher Support</h3>
+        <p>Auch nach dem Launch lassen wir Sie nicht im Stich und stehen Ihnen für Anpassungen und Wartung zur
+          Verfügung.</p>
+      </div>
     </div>
+  </section>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-pill">🚀 Next-Gen Web Development</div>
-        <h1>Zeit für einen <span class="highlight">digitalen Neustart.</span></h1>
-        <p>Veraltete Websites kosten Sie Kunden. Wir modernisieren Ihre Online-Präsenz mit erstklassigem Design, rasend schnellen Ladezeiten und kompromissloser Benutzerfreundlichkeit.</p>
-        <div class="hero-cta">
-            <a href="#contact" class="btn btn-primary">Kostenlose Analyse anfordern</a>
+  <!-- About Section -->
+  <section id="about" class="about-section">
+    <div class="about-content">
+      <div class="about-image card">
+        <img src="images/WebFoto.JPG" alt="Profilbild" />
+      </div>
+      <div class="about-text">
+        <h2 class="section-title" style="text-align: left; margin-bottom: 20px;">Ihre Website, <br><span
+            class="highlight">schneller & günstiger.</span></h2>
+        <p>Mein Name ist Miguel Garcia und ich bin Ihr persönlicher Web-Experte. Durch den Einsatz moderner Technologien
+          und effizienter Prozesse kann ich Ihre Website deutlich <strong>schneller und kostengünstiger</strong>
+          modernisieren als herkömmliche Agenturen – ohne Kompromisse bei der Qualität.</p>
+        <p>Anstatt monatelang auf Ergebnisse zu warten, erhalten Sie ein atemberaubendes, hochperformantes Design, das
+          in Rekordzeit live geht. Keine versteckten Kosten, sondern transparente, faire Preise und direkte
+          Kommunikation.</p>
+        <div style="margin-top: 30px;">
+          <a href="#contact" class="btn btn-primary">Lassen Sie uns starten</a>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- Services Section -->
-    <section id="services" class="services">
-        <h2 class="section-title">Unsere <span class="highlight">Expertise</span></h2>
-        <div class="grid">
-            <div class="card">
-                <div class="card-icon">✨</div>
-                <h3>Premium Design</h3>
-                <p>Wir kreieren moderne UI/UX Erlebnisse mit atemberaubender Ästhetik. Kein Baukasten-Look, sondern maßgeschneiderte Perfektion.</p>
-            </div>
-            <div class="card" style="transition-delay: 0.1s;">
-                <div class="card-icon">⚡</div>
-                <h3>Maximaler Speed</h3>
-                <p>Nutzer warten nicht. Wir optimieren Ihren Code und Ihre Assets für blitzschnelle Ladezeiten auf allen Endgeräten.</p>
-            </div>
-            <div class="card" style="transition-delay: 0.2s;">
-                <div class="card-icon">📈</div>
-                <h3>SEO & Sichtbarkeit</h3>
-                <p>Eine schöne Website nützt nichts, wenn sie nicht gefunden wird. Wir programmieren nach den neuesten SEO-Standards.</p>
-            </div>
-            <div class="card" style="transition-delay: 0.3s;">
-                <div class="card-icon">📱</div>
-                <h3>Responsive Perfection</h3>
-                <p>Ihre neue Website sieht auf Smartphones, Tablets und großen Bildschirmen gleichermaßen makellos aus.</p>
-            </div>
-            <div class="card" style="transition-delay: 0.4s;">
-                <div class="card-icon">🔒</div>
-                <h3>Sicherheit & Updates</h3>
-                <p>Wir verwenden moderne Technologien, um Ihre Seite vor Angriffen zu schützen und zukunftssicher aufzustellen.</p>
-            </div>
-            <div class="card" style="transition-delay: 0.5s;">
-                <div class="card-icon">💬</div>
-                <h3>Persönlicher Support</h3>
-                <p>Auch nach dem Launch lassen wir Sie nicht im Stich und stehen Ihnen für Anpassungen und Wartung zur Verfügung.</p>
-            </div>
+  <!-- Contact Section -->
+  <section id="contact" class="contact-section">
+    <h2 class="section-title">Bereit für den <span class="highlight">Neustart?</span></h2>
+    <div class="contact-container card">
+      <form class="contact-form"
+        onsubmit="event.preventDefault(); alert('Vielen Dank für Ihre Anfrage! Wir melden uns in Kürze.');">
+        <div class="form-group">
+          <label for="name">Name *</label>
+          <input type="text" id="name" name="name" required placeholder="Ihr Name">
         </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="about-section">
-        <div class="about-content">
-            <div class="about-image card">
-                <img src="images/WebFoto.JPG" alt="Profilbild" />
-            </div>
-            <div class="about-text">
-                <h2 class="section-title" style="text-align: left; margin-bottom: 20px;">Ihre Website, <br><span class="highlight">schneller & günstiger.</span></h2>
-                <p>Mein Name ist Miguel Garcia und ich bin Ihr persönlicher Web-Experte. Durch den Einsatz moderner Technologien und effizienter Prozesse kann ich Ihre Website deutlich <strong>schneller und kostengünstiger</strong> modernisieren als herkömmliche Agenturen – ohne Kompromisse bei der Qualität.</p>
-                <p>Anstatt monatelang auf Ergebnisse zu warten, erhalten Sie ein atemberaubendes, hochperformantes Design, das in Rekordzeit live geht. Keine versteckten Kosten, sondern transparente, faire Preise und direkte Kommunikation.</p>
-                <div style="margin-top: 30px;">
-                    <a href="#contact" class="btn btn-primary">Lassen Sie uns starten</a>
-                </div>
-            </div>
+        <div class="form-group">
+          <label for="company">Firmenname (optional)</label>
+          <input type="text" id="company" name="company" placeholder="Ihre Firma">
         </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact-section">
-        <h2 class="section-title">Bereit für den <span class="highlight">Neustart?</span></h2>
-        <div class="contact-container card">
-            <form class="contact-form" onsubmit="event.preventDefault(); alert('Vielen Dank für Ihre Anfrage! Wir melden uns in Kürze.');">
-                <div class="form-group">
-                    <label for="name">Name *</label>
-                    <input type="text" id="name" name="name" required placeholder="Ihr Name">
-                </div>
-                <div class="form-group">
-                    <label for="company">Firmenname (optional)</label>
-                    <input type="text" id="company" name="company" placeholder="Ihre Firma">
-                </div>
-                <div class="form-group">
-                    <label for="email">E-Mail Adresse *</label>
-                    <input type="email" id="email" name="email" required placeholder="name@beispiel.ch">
-                </div>
-                <div class="form-group">
-                    <label for="phone">Telefonnummer (optional)</label>
-                    <input type="tel" id="phone" name="phone" placeholder="+41 79 123 45 67">
-                </div>
-                <div class="form-group">
-                    <label for="website">Link zur aktuellen Webseite *</label>
-                    <input type="url" id="website" name="website" required placeholder="https://ihre-alte-webseite.ch">
-                </div>
-                <button type="submit" class="btn btn-primary btn-submit">Jetzt anfragen</button>
-            </form>
+        <div class="form-group">
+          <label for="email">E-Mail Adresse *</label>
+          <input type="email" id="email" name="email" required placeholder="name@beispiel.ch">
         </div>
-    </section>
+        <div class="form-group">
+          <label for="phone">Telefonnummer (optional)</label>
+          <input type="tel" id="phone" name="phone" placeholder="+41 79 123 45 67">
+        </div>
+        <div class="form-group">
+          <label for="website">Link zur aktuellen Webseite *</label>
+          <input type="url" id="website" name="website" required placeholder="https://ihre-alte-webseite.ch">
+        </div>
+        <button type="submit" class="btn btn-primary btn-submit">Jetzt anfragen</button>
+      </form>
+    </div>
+  </section>
 
-    <!-- Footer Section -->
-    <footer>
-        <p>&copy; 2026 Miggi-Dev. Alle Rechte vorbehalten. | Ein Projekt für die Zukunft.</p>
-    </footer>
+  <!-- Footer Section -->
+  <footer>
+    <p>&copy; 2026 Miggi-Dev. Alle Rechte vorbehalten. | Ein Projekt für die Zukunft.</p>
+  </footer>
 
-    <script src="main.js"></script>
-  </body>
+  <script src="main.js"></script>
+</body>
+
 </html>
