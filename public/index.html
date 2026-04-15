@@ -3,7 +3,6 @@
 
 <head>
 
-  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-X7V9DEQ6PH"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -24,15 +23,33 @@
 
   <!-- Firebase SDK (Optional for future use) -->
   <script defer src="/__/firebase/12.12.0/firebase-app-compat.js"></script>
+
+  <!-- Three.js for 3D Backgrounds -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script defer src="3d-elements.js"></script>
+
   <script defer src="/__/firebase/12.12.0/firebase-analytics-compat.js"></script>
   <script defer src="/__/firebase/init.js?useEmulator=true"></script>
 </head>
 
 <body>
+  <!-- 3D Background Canvas -->
+  <canvas id="canvas-3d"></canvas>
+
   <!-- Background Animation -->
   <div class="bg-blobs">
     <div class="blob blob-1"></div>
     <div class="blob blob-2"></div>
+  </div>
+
+  <!-- Parallax Background Elements -->
+  <div class="parallax-container">
+    <div class="p-item p-code p-1" data-speed="2" data-mouse="1">&lt;div/&gt;</div>
+    <div class="p-item p-code p-2" data-speed="4" data-mouse="2">{ CSS }</div>
+    <div class="p-item p-shape p-3" data-speed="3" data-mouse="1.5"></div>
+    <div class="p-item p-code p-4" data-speed="5" data-mouse="3">const js = {}</div>
+    <div class="p-item p-shape p-5" data-speed="2.5" data-mouse="2"></div>
+    <div class="p-item p-code p-6" data-speed="3.5" data-mouse="1">Modernize</div>
   </div>
 
   <!-- Navigation -->
@@ -61,41 +78,52 @@
   <!-- Services Section -->
   <section id="services" class="services">
     <h2 class="section-title">Unsere <span class="highlight">Expertise</span></h2>
-    <div class="grid">
-      <div class="card">
-        <div class="card-icon">✨</div>
-        <h3>Premium Design</h3>
-        <p>Wir kreieren moderne UI/UX Erlebnisse mit atemberaubender Ästhetik. Kein Baukasten-Look, sondern
-          maßgeschneiderte Perfektion.</p>
+    <div class="grid" id="bouncing-container">
+      <div class="card-wrapper">
+        <div class="card">
+          <div class="card-icon">✨</div>
+          <h3>Premium Design</h3>
+          <p>Wir kreieren moderne UI/UX Erlebnisse mit atemberaubender Ästhetik. Kein Baukasten-Look, sondern
+            maßgeschneiderte Perfektion.</p>
+        </div>
       </div>
-      <div class="card" style="transition-delay: 0.1s;">
-        <div class="card-icon">⚡</div>
-        <h3>Maximaler Speed</h3>
-        <p>Nutzer warten nicht. Wir optimieren Ihren Code und Ihre Assets für blitzschnelle Ladezeiten auf allen
-          Endgeräten.</p>
+      <div class="card-wrapper">
+        <div class="card">
+          <div class="card-icon">⚡</div>
+          <h3>Maximaler Speed</h3>
+          <p>Nutzer warten nicht. Wir optimieren Ihren Code und Ihre Assets für blitzschnelle Ladezeiten auf allen
+            Endgeräten.</p>
+        </div>
       </div>
-      <div class="card" style="transition-delay: 0.2s;">
-        <div class="card-icon">📈</div>
-        <h3>SEO & Sichtbarkeit</h3>
-        <p>Eine schöne Website nützt nichts, wenn sie nicht gefunden wird. Wir programmieren nach den neuesten
-          SEO-Standards.</p>
+      <div class="card-wrapper">
+        <div class="card">
+          <div class="card-icon">📈</div>
+          <h3>SEO & Sichtbarkeit</h3>
+          <p>Eine schöne Website nützt nichts, wenn sie nicht gefunden wird. Wir programmieren nach den neuesten
+            SEO-Standards.</p>
+        </div>
       </div>
-      <div class="card" style="transition-delay: 0.3s;">
-        <div class="card-icon">📱</div>
-        <h3>Responsive Perfection</h3>
-        <p>Ihre neue Website sieht auf Smartphones, Tablets und großen Bildschirmen gleichermaßen makellos aus.</p>
+      <div class="card-wrapper">
+        <div class="card">
+          <div class="card-icon">📱</div>
+          <h3>Responsive Perfection</h3>
+          <p>Ihre neue Website sieht auf Smartphones, Tablets und großen Bildschirmen gleichermaßen makellos aus.</p>
+        </div>
       </div>
-      <div class="card" style="transition-delay: 0.4s;">
-        <div class="card-icon">🔒</div>
-        <h3>Sicherheit & Updates</h3>
-        <p>Wir verwenden moderne Technologien, um Ihre Seite vor Angriffen zu schützen und zukunftssicher aufzustellen.
-        </p>
+      <div class="card-wrapper">
+        <div class="card">
+          <div class="card-icon">🔒</div>
+          <h3>Sicherheit & Updates</h3>
+          <p>Wir verwenden moderne Technologien, um Ihre Seite vor Angriffen zu schützen und zukunftssicher aufzustellen.</p>
+        </div>
       </div>
-      <div class="card" style="transition-delay: 0.5s;">
-        <div class="card-icon">💬</div>
-        <h3>Persönlicher Support</h3>
-        <p>Auch nach dem Launch lassen wir Sie nicht im Stich und stehen Ihnen für Anpassungen und Wartung zur
-          Verfügung.</p>
+      <div class="card-wrapper">
+        <div class="card">
+          <div class="card-icon">💬</div>
+          <h3>Persönlicher Support</h3>
+          <p>Auch nach dem Launch lassen wir Sie nicht im Stich und stehen Ihnen für Anpassungen und Wartung zur
+            Verfügung.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -145,8 +173,12 @@
           <input type="tel" id="phone" name="phone" placeholder="+41 79 123 45 67">
         </div>
         <div class="form-group">
-          <label for="website">Link zur aktuellen Webseite *</label>
-          <input type="url" id="website" name="website" required placeholder="https://ihre-alte-webseite.ch">
+          <label for="website">Link zur aktuellen Webseite (optional)</label>
+          <input type="url" id="website" name="website" placeholder="https://ihre-alte-webseite.ch">
+        </div>
+        <div class="form-group">
+          <label for="recommended">Empfohlen von (optional)</label>
+          <input type="text" id="recommended" name="recommended" placeholder="Name der Person / Firma">
         </div>
         <button type="submit" class="btn btn-primary btn-submit">Jetzt anfragen</button>
       </form>
@@ -156,9 +188,14 @@
   <!-- Footer Section -->
   <footer>
     <p>&copy; 2026 Miggi-Dev. Alle Rechte vorbehalten. | Ein Projekt für die Zukunft.</p>
+    <div class="footer-links">
+      <a href="impressum.html">Impressum</a> |
+      <a href="datenschutz.html">Datenschutzerklärung</a>
+    </div>
   </footer>
 
   <script src="main.js"></script>
+  <script src="bouncing-cards.js"></script>
 </body>
 
 </html>

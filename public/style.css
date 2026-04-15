@@ -26,6 +26,19 @@ body {
   line-height: 1.6;
 }
 
+/* 3D Canvas */
+#canvas-3d {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -2;
+  /* Behind everything */
+  pointer-events: none;
+  background: transparent;
+}
+
 /* Background Blobs */
 .bg-blobs {
   position: fixed;
@@ -64,8 +77,84 @@ body {
 }
 
 @keyframes float {
-  0% { transform: translate(0, 0) scale(1); }
-  100% { transform: translate(100px, 50px) scale(1.2); }
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  100% {
+    transform: translate(100px, 50px) scale(1.2);
+  }
+}
+
+/* Parallax Elements */
+.parallax-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.p-item {
+  position: absolute;
+  color: var(--secondary);
+  opacity: 0.15;
+  font-weight: 800;
+  font-family: monospace;
+  white-space: nowrap;
+  pointer-events: none;
+  filter: blur(1px);
+}
+
+.p-shape {
+  width: 100px;
+  height: 100px;
+  background: linear-gradient(45deg, var(--primary), var(--secondary));
+  border-radius: 20px;
+  opacity: 0.08;
+}
+
+.p-1 {
+  top: 20%;
+  left: 10%;
+  font-size: 24px;
+}
+
+.p-2 {
+  top: 60%;
+  left: 85%;
+  font-size: 32px;
+}
+
+.p-3 {
+  top: 15%;
+  left: 80%;
+  transform: rotate(15deg);
+}
+
+.p-4 {
+  top: 80%;
+  left: 15%;
+  font-size: 20px;
+}
+
+.p-5 {
+  top: 45%;
+  left: 5%;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  opacity: 0.05;
+}
+
+.p-6 {
+  top: 35%;
+  left: 90%;
+  font-size: 28px;
+  transform: rotate(-90deg);
 }
 
 /* Navbar */
@@ -204,31 +293,68 @@ nav {
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 15px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Individual Physics Boundaries (Invisible) */
+.card-wrapper {
+  position: relative;
+  width: 100%;
+  height: 360px; /* Reduced box height */
+  overflow: hidden;
 }
 
 .card {
-  background: var(--surface);
+  background: rgba(10, 10, 15, 0.6); /* More readable dark glassmorphism */
   border: 1px solid var(--surface-border);
   border-radius: 20px;
-  padding: 40px 30px;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  transition: transform 0.4s ease, border-color 0.4s ease;
-  opacity: 0;
-  transform: translateY(30px);
+  padding: 30px;
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+  position: relative;
 }
 
-.card.visible {
-  opacity: 1;
-  transform: translateY(0);
+@media (min-width: 769px) {
+  .card-wrapper .card {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: calc(100% - 40px); 
+    max-width: 350px;
+    height: 300px;
+    z-index: 10;
+    will-change: transform;
+    /* Remove default CSS transitions so JS handles smooth physics */
+    transition: box-shadow 0.3s ease, border-color 0.3s ease; 
+  }
+
+  .card-wrapper .card:hover {
+    z-index: 20;
+    box-shadow: 0 10px 30px var(--primary-glow);
+    border-color: var(--primary);
+  }
 }
 
-.card:hover {
-  transform: translateY(-10px);
-  border-color: var(--secondary);
-  box-shadow: 0 10px 30px rgba(0, 245, 255, 0.05);
+@media (max-width: 768px) {
+  .card-wrapper {
+    position: relative;
+    height: 350px; /* Tighter box for mobile */
+    border: none;
+    background: transparent;
+    overflow: hidden; /* Constrain the bounce */
+    margin-bottom: 10px;
+  }
+  .card-wrapper .card {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: calc(100% - 20px);
+    height: auto;
+  }
 }
 
 .card-icon {
@@ -373,15 +499,81 @@ footer {
   margin-top: 50px;
 }
 
+.footer-links {
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+.footer-links a {
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.3s;
+  margin: 0 5px;
+}
+
+.footer-links a:hover {
+  color: var(--secondary);
+}
+
+/* Legal Pages Styling */
+.legal-page {
+  padding-top: 120px;
+}
+
+.legal-content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 5%;
+  line-height: 1.8;
+}
+
+.legal-content h1 {
+  font-size: 48px;
+  margin-bottom: 40px;
+  background: linear-gradient(45deg, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.legal-content h2,
+.legal-content h3 {
+  margin-top: 40px;
+  margin-bottom: 20px;
+  color: var(--text-main);
+}
+
+.legal-content section {
+  margin-bottom: 40px;
+  background: var(--surface);
+  border: 1px solid var(--surface-border);
+  padding: 30px;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+}
+
 /* Animations */
 @keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes fadeInDown {
-  from { opacity: 0; transform: translateY(-30px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Responsive adjustments */
@@ -393,23 +585,27 @@ footer {
     -webkit-backdrop-filter: none;
     background: rgba(3, 3, 5, 0.98);
   }
-  
-  nav > .btn {
-    display: none; /* Hide top CTA on mobile to save space */
+
+  nav>.btn {
+    display: none;
+    /* Hide top CTA on mobile to save space */
   }
 
   .logo {
     margin: 0 auto;
   }
-  
+
   .nav-links {
     position: fixed;
-    top: auto !important; /* Explicitly unset top for Safari */
-    bottom: 30px !important; /* Move it slightly up for Safari safe area */
+    top: auto !important;
+    /* Explicitly unset top for Safari */
+    bottom: 30px !important;
+    /* Move it slightly up for Safari safe area */
     left: 50% !important;
     transform: translateX(-50%) !important;
     width: 90%;
-    max-width: 400px; /* Keep it compact on mobile */
+    max-width: 400px;
+    /* Keep it compact on mobile */
     background: rgba(10, 10, 15, 0.95);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
@@ -418,30 +614,43 @@ footer {
     padding: 12px 20px;
     justify-content: space-around;
     gap: 10px;
-    z-index: 9999; /* Ensure it stays on top */
+    z-index: 9999;
+    /* Ensure it stays on top */
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
-    -webkit-transform: translateX(-50%) translateZ(0); /* Safari hardware acceleration trigger */
+    -webkit-transform: translateX(-50%) translateZ(0);
+    /* Safari hardware acceleration trigger */
   }
 
   .nav-links a {
     font-size: 13px;
     font-weight: 600;
   }
-  
+
   .hero h1 {
-    font-size: 32px;
+    font-size: 38px; /* Slightly larger for impact, but balanced */
+    line-height: 1.2;
   }
-  
+
+  .section-title {
+    font-size: 28px;
+    margin-bottom: 40px;
+  }
+
+  section {
+    padding: 60px 5% !important;
+  }
+
   .about-content {
     flex-direction: column;
     gap: 30px;
   }
-  
+
   .contact-container {
     padding: 20px;
   }
-  
+
   footer {
-    padding-bottom: 100px; /* Make space for floating nav */
+    padding-bottom: 120px;
+    /* Make space for floating nav */
   }
 }

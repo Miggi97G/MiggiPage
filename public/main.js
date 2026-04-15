@@ -32,4 +32,37 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+    // Parallax logic
+    const parallaxItems = document.querySelectorAll('.p-item');
+    let scrollPos = window.pageYOffset;
+    let mouseX = 0;
+    let mouseY = 0;
+
+    // Track mouse
+    window.addEventListener('mousemove', (e) => {
+        mouseX = (e.clientX / window.innerWidth) - 0.5;
+        mouseY = (e.clientY / window.innerHeight) - 0.5;
+    });
+
+    const updateParallax = () => {
+        scrollPos = window.pageYOffset;
+        
+        parallaxItems.forEach(item => {
+            const speed = parseFloat(item.getAttribute('data-speed')) || 2;
+            const mouseSpeed = parseFloat(item.getAttribute('data-mouse')) || 1;
+            
+            // Scroll parallax
+            const yOffset = scrollPos * (speed / 10);
+            
+            // Mouse parallax
+            const mxOffset = mouseX * 50 * mouseSpeed;
+            const myOffset = mouseY * 50 * mouseSpeed;
+            
+            item.style.transform = `translate(${mxOffset}px, ${yOffset + myOffset}px)`;
+        });
+        
+        requestAnimationFrame(updateParallax);
+    };
+
+    updateParallax();
 });
