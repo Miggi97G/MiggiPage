@@ -5,17 +5,43 @@
 
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-X7V9DEQ6PH"></script>
   <script>
+    // Google Analytics Opt-Out Logic
+    var gaProperty = 'G-X7V9DEQ6PH';
+    var disableStr = 'ga-disable-' + gaProperty;
+    if (localStorage.getItem('cookieConsent') !== 'granted') {
+      window[disableStr] = true;
+    }
+
     window.dataLayer = window.dataLayer || [];
     function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
 
-    gtag('config', 'G-X7V9DEQ6PH');
+    gtag('config', 'G-X7V9DEQ6PH', { 'anonymize_ip': true });
+
+    function acceptCookies() {
+      localStorage.setItem('cookieConsent', 'granted');
+      window[disableStr] = false;
+      document.getElementById('cookie-banner').style.display = 'none';
+      location.reload(); // Reload to ensure GA is fully initialized
+    }
+
+    function declineCookies() {
+      localStorage.setItem('cookieConsent', 'denied');
+      window[disableStr] = true;
+      document.getElementById('cookie-banner').style.display = 'none';
+    }
+
+    window.addEventListener('load', function() {
+      if (!localStorage.getItem('cookieConsent')) {
+        document.getElementById('cookie-banner').style.display = 'flex';
+      }
+    });
   </script>
 
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Miggi-Dev | Website Modernisierung</title>
+  <title>Miggi-Dev | Professionelle Webentwicklung in der Schweiz</title>
   <meta name="description"
     content="Wir modernisieren Ihre Website. Premium Design, maximale Performance und höchste Sichtbarkeit.">
 
@@ -114,7 +140,8 @@
         <div class="card">
           <div class="card-icon">🔒</div>
           <h3>Sicherheit & Updates</h3>
-          <p>Wir verwenden moderne Technologien, um Ihre Seite vor Angriffen zu schützen und zukunftssicher aufzustellen.</p>
+          <p>Wir verwenden moderne Technologien, um Ihre Seite vor Angriffen zu schützen und zukunftssicher
+            aufzustellen.</p>
         </div>
       </div>
       <div class="card-wrapper">
@@ -193,6 +220,21 @@
       <a href="datenschutz.html">Datenschutzerklärung</a>
     </div>
   </footer>
+
+  <!-- Cookie Banner -->
+  <div id="cookie-banner" class="cookie-banner" style="display: none;">
+    <div class="cookie-content">
+      <div class="cookie-header">
+        <span class="cookie-icon">🍪</span>
+        <h4>Datenschutz & Cookies</h4>
+      </div>
+      <p>Wir nutzen Cookies, um unsere Website für Sie optimal zu gestalten und fortlaufend zu verbessern. Durch die weitere Nutzung der Website stimmen Sie der Verwendung von Google Analytics zu.</p>
+      <div class="cookie-actions">
+        <button onclick="declineCookies()" class="btn btn-secondary-outline">Ablehnen</button>
+        <button onclick="acceptCookies()" class="btn btn-primary">Akzeptieren</button>
+      </div>
+    </div>
+  </div>
 
   <script src="main.js"></script>
   <script src="bouncing-cards.js"></script>
