@@ -31,7 +31,7 @@
       document.getElementById('cookie-banner').style.display = 'none';
     }
 
-    window.addEventListener('load', function() {
+    window.addEventListener('load', function () {
       if (!localStorage.getItem('cookieConsent')) {
         document.getElementById('cookie-banner').style.display = 'flex';
       }
@@ -80,7 +80,7 @@
 
   <!-- Navigation -->
   <nav>
-    <div class="logo">Miggi-Dev.</div>
+    <div class="logo">{Miggi-Dev.}</div>
     <a href="#contact" class="btn btn-primary">Jetzt starten</a>
   </nav>
 
@@ -228,7 +228,8 @@
         <span class="cookie-icon">🍪</span>
         <h4>Datenschutz & Cookies</h4>
       </div>
-      <p>Wir nutzen Cookies, um unsere Website für Sie optimal zu gestalten und fortlaufend zu verbessern. Durch die weitere Nutzung der Website stimmen Sie der Verwendung von Google Analytics zu.</p>
+      <p>Wir nutzen Cookies, um unsere Website für Sie optimal zu gestalten und fortlaufend zu verbessern. Durch die
+        weitere Nutzung der Website stimmen Sie der Verwendung von Google Analytics zu.</p>
       <div class="cookie-actions">
         <button onclick="declineCookies()" class="btn btn-secondary-outline">Ablehnen</button>
         <button onclick="acceptCookies()" class="btn btn-primary">Akzeptieren</button>
