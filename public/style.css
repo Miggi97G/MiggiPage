@@ -26,6 +26,14 @@ body {
   line-height: 1.6;
 }
 
+h1, h2, h3 {
+  text-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+p {
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
 /* 3D Canvas */
 #canvas-3d {
   position: fixed;
@@ -236,6 +244,8 @@ nav {
   text-align: center;
   padding: 0 20px;
   position: relative;
+  /* Backplate for readability */
+  background: radial-gradient(circle at center, rgba(3, 3, 5, 0.6) 0%, transparent 80%);
 }
 
 .hero-pill {
@@ -267,10 +277,18 @@ nav {
 
 .hero p {
   font-size: clamp(16px, 2vw, 20px);
-  color: var(--text-muted);
-  max-width: 600px;
-  margin-bottom: 40px;
+  color: var(--text-main); /* Changed from muted for better contrast */
+  max-width: 700px;
+  margin: 0 auto 40px;
   animation: fadeInUp 1s ease 0.4s backwards;
+  
+  /* Readability Backplate */
+  background: rgba(3, 3, 5, 0.5);
+  padding: 15px 25px;
+  border-radius: 15px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .hero-cta {
@@ -282,6 +300,19 @@ nav {
   padding: 100px 5%;
   max-width: 1400px;
   margin: 0 auto;
+  position: relative;
+}
+
+.services::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 50% 30%, rgba(3, 3, 5, 0.5) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: -1;
 }
 
 .section-title {
@@ -415,6 +446,12 @@ nav {
 .about-text {
   flex: 1;
   min-width: 300px;
+  background: rgba(10, 10, 15, 0.4);
+  padding: 30px;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--surface-border);
 }
 
 .about-text p {
@@ -433,6 +470,8 @@ nav {
   padding: 100px 5%;
   max-width: 800px;
   margin: 0 auto;
+  position: relative;
+  background: radial-gradient(circle at 50% 20%, rgba(3, 3, 5, 0.4) 0%, transparent 60%);
 }
 
 .contact-container {
