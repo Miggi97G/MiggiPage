@@ -1,0 +1,15 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /tickets/{ticketId} {
+      // Jeder darf ein Ticket erstellen
+      allow create: if true;
+      
+      // Nur autorisierte Admins sollten lesen dürfen. 
+      // Vorerst erlauben wir den Lesezugriff für die Entwicklung, 
+      // aber wir empfehlen dringend Firebase Auth einzurichten.
+      allow read, update: if true; 
+    }
+  }
+}
