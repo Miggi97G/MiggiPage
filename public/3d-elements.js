@@ -43,7 +43,6 @@ document.addEventListener('DOMContentLoaded', () => {
         metalness: 0.1,
         roughness: 0.2, // slight frosting
         transmission: 1.0, // highly transparent/glass-like
-        thickness: 0.5,
         ior: 1.5,
         clearcoat: 1.0,
         clearcoatRoughness: 0.1

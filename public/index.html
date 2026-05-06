@@ -45,18 +45,52 @@
   <meta name="description"
     content="Wir modernisieren Ihre Website. Premium Design, maximale Performance und höchste Sichtbarkeit.">
 
+  <!-- SEO Optimizations -->
+  <link rel="canonical" href="https://miggipage.web.app/" />
+  <link rel="icon" type="image/png" href="favicon.png">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://miggipage.web.app/">
+  <meta property="og:title" content="Miggi-Dev | Professionelle Webentwicklung">
+  <meta property="og:description" content="Wir modernisieren Ihre Website. Premium Design, maximale Performance und höchste Sichtbarkeit.">
+  <meta property="og:image" content="https://miggipage.web.app/images/WebFoto.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://miggipage.web.app/">
+  <meta property="twitter:title" content="Miggi-Dev | Professionelle Webentwicklung">
+  <meta property="twitter:description" content="Wir modernisieren Ihre Website. Premium Design, maximale Performance und höchste Sichtbarkeit.">
+  <meta property="twitter:image" content="https://miggipage.web.app/images/WebFoto.png">
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Miggi-Dev",
+    "image": "https://miggipage.web.app/images/WebFoto.png",
+    "@id": "https://miggipage.web.app/",
+    "url": "https://miggipage.web.app/",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Schweiz",
+      "addressCountry": "CH"
+    },
+    "founder": {
+      "@type": "Person",
+      "name": "Miguel Garcia"
+    },
+    "description": "Professionelle Webentwicklung in der Schweiz. Premium Design, maximale Performance und höchste Sichtbarkeit."
+  }
+  </script>
+
   <link rel="stylesheet" href="style.css">
 
   <!-- Firebase SDK (Optional for future use) -->
-  <script defer src="/__/firebase/12.12.0/firebase-app-compat.js"></script>
-
   <!-- Three.js for 3D Backgrounds -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script defer src="3d-elements.js"></script>
-
-  <script defer src="/__/firebase/12.12.0/firebase-analytics-compat.js"></script>
-  <script defer src="/__/firebase/init.js?useEmulator=true"></script>
-
 </head>
 
 <body>
@@ -160,7 +194,7 @@
   <section id="about" class="about-section">
     <div class="about-content">
       <div class="about-image card">
-        <img src="images/WebFoto.png" alt="Profilbild" />
+        <img src="images/WebFoto.png" alt="Miguel Garcia - Freelance Webentwickler Schweiz" />
       </div>
       <div class="about-text">
         <h2 class="section-title" style="text-align: left; margin-bottom: 20px;">Ihre Website, <br><span

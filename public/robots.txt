@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://miggipage.web.app/sitemap.xml
